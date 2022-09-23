@@ -48,11 +48,12 @@ class RKNNModelPC:
         ret = self.model.init_runtime()
         assert ret == 0, print_error("Init runtime environment failed!")
 
-    def export(self, export_path="./weights/rknn"):
+    def export(self, save_path="./weights/rknn/result.rknn"):
+        export_path = os.path.dirname(save_path)
         if not os.path.exists(export_path):
             os.mkdir(export_path)
         print("导出的模型将保存在{}目录下".format(export_path))
-        ret = self.model.export_rknn(os.path.join(export_path, "export_model.rknn"))
+        ret = self.model.export_rknn(save_path)
         assert ret == 0, print_error("Export rknn model failed!")
 
     def infer(self, input_data):

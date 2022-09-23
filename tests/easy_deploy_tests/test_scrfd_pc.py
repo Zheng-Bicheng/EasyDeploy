@@ -1,0 +1,21 @@
+import os
+from EaysDeploy.detection.scrfd import ScrFDForPC
+from EaysDeploy.utils import draw_face
+from EaysDeploy.utils import norm_crop
+import cv2
+
+if __name__ == "__main__":
+    my_model = ScrFDForPC(verbose=False,
+                          model_path="./weights/onnx/scrfd_640x640_with_points.onnx")
+    my_model.export("./weights/rknn/scrfd_640x640_with_points.rknn")
+
+    img = cv2.imread("./tests/test_images/ada_face_test.jpeg")
+    bboxes, landmarks = my_model.detect(img.copy())
+
+    save_path = "./tests/test_outputs/"
+    if not os.path.exists(save_path):
+        os.mkdir(save_path)
+    draw_face(img.copy(), bboxes, landmarks, os.path.join(save_path, "scrfd_result.jpg"))
+
+    img_face = norm_crop(img.copy(),landmarks[0])
+    cv2.imwrite(os.path.join(save_path, "scrfd_face.jpg"), img_face)
