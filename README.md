@@ -8,7 +8,8 @@
 ## 目前支持的模型列表
 
 
-| 模型类型      | 模型名称                 | 是否量化 | 编程语言   |
-|-----------|----------------------|------|--------|
-| Clas      | MobileFaceNetAdaFace | 否    | python |
-| Detection | ScrFD                | 否    | python |
+
+| 模型类型      | 模型名称    | 是否量化 | 编程语言   |
+|-----------|---------|------|--------|
+| Clas      | AdaFace | 否    | python |
+| Detection | ScrFD   | 否    | python |
