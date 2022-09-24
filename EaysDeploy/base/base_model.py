@@ -14,7 +14,7 @@ class RKNNModelPC:
                  verbose=True,
                  mean_values=None,
                  std_values=None,
-                 target_platform=None,
+                 target_platform="RK3568",
                  model_path=None):
         from rknn.api import RKNN
 
@@ -30,8 +30,6 @@ class RKNNModelPC:
             print_warning("您没有配置std_values，已为您初始化为[[0, 0, 0]]")
             print_warning("建议使用RKNN的config api进行标准化操作")
             std_values = [[1, 1, 1]]
-        if target_platform is None:
-            target_platform = "RK3568"
         self.model.config(mean_values=mean_values, std_values=std_values, target_platform=target_platform)
 
         # Load ONNX model
@@ -55,6 +53,31 @@ class RKNNModelPC:
         print("导出的模型将保存在{}目录下".format(export_path))
         ret = self.model.export_rknn(save_path)
         assert ret == 0, print_error("Export rknn model failed!")
+
+    def infer(self, input_data):
+        result = self.model.inference(input_data)
+        return result
+
+class RKNNModelBoard:
+    def __init__(self,
+                 verbose=True,
+                 rknn_path=None,
+                 target='RK3568'):
+        from rknnlite.api import RKNNLite
+
+        # create rknn
+        rknn = RKNNLite(verbose=verbose)
+
+        # Load ONNX model
+        assert rknn_path is not None, print_error("model_path is None")
+        ret = rknn.load_rknn(path=rknn_path)
+        assert ret == 0, print_error("Load model failed!")
+
+        if target == "RK3588":
+            ret = rknn.init_runtime(core_mask=RKNNLite.NPU_CORE_0)
+        else:
+            ret = rknn.init_runtime()
+        assert ret == 0, print_error("Init runtime environment failed!")
 
     def infer(self, input_data):
         result = self.model.inference(input_data)
