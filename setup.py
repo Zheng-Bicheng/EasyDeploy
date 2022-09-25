@@ -9,11 +9,18 @@ setup(name='EasyDeploy',
       license='Apache 2.0',
       packages=[
           'EasyDeploy',
+
           'EasyDeploy/base',
+
           'EasyDeploy/clas',
           'EasyDeploy/clas/ada_face',
+
           'EasyDeploy/detection',
           'EasyDeploy/detection/scrfd',
+
+          'EasyDeploy/project',
+          'EasyDeploy/project/face_recognition',
+
           'EasyDeploy/utils',
       ],
       author="ZhengBicheng",

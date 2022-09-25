@@ -79,8 +79,6 @@ class ScrFDForPC(RKNNModelPC):
         bboxes_list = []
         points_list = []
         results = self.infer([input_data])
-        for i in range(len(results)):
-            results[i] = np.squeeze(results[i], 3)
         self.init_vars(results)
         fmc = self.fmc
         for idx, stride in enumerate(self._feat_stride_fpn):
@@ -183,8 +181,6 @@ class ScrFDForPC(RKNNModelPC):
             if points is not None:
                 points = points[bindex, :]
         return det, points
-
-    # def predict(self, image):
 
     def init_vars(self, outputs):
         if len(outputs[0].shape) == 3:

@@ -24,7 +24,9 @@ class AdaFaceForPC(RKNNModelPC):
 
     def detect(self, img):
         input_data = np.array(img).astype(np.float32)
-        results = self.infer([input_data])
+        input_data = np.expand_dims(input_data, axis=0)
+        results = self.infer([input_data])[0]
+
         return results
 
 
@@ -41,5 +43,6 @@ class AdaFaceForBoard(RKNNModelBoard):
 
     def detect(self, img):
         input_data = np.array(img).astype(np.float32)
-        results = self.infer([input_data])
+        input_data = np.expand_dims(input_data, axis=0)
+        results = self.infer([input_data])[0]
         return results

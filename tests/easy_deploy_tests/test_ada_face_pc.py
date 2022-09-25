@@ -6,4 +6,3 @@ if __name__ == "__main__":
     model.export("./weights/rknn/mobile_face_net_ada_face_112x112.rknn")
     image = cv2.imread("./tests/test_outputs/scrfd_face.jpg")
     results = model.detect(image)
-    print(results[0].shape)

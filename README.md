@@ -7,9 +7,17 @@
 
 ## 目前支持的模型列表
 
-
-
 | 模型类型      | 模型名称    | 是否量化 | 编程语言   |
 |-----------|---------|------|--------|
 | Clas      | AdaFace | 否    | python |
 | Detection | ScrFD   | 否    | python |
+
+## 目录介绍
+
+**docs**: 存放各种文档
+
+**EasyDeploy**: python源代码目录
+
+**tests**: 测试代码
+
+**weights**: 权重文件文件夹

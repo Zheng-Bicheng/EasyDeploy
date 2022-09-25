@@ -69,3 +69,18 @@ def draw_face(img, bboxes, kpss, out_path, with_kps=True):
 
     print('output:', out_path)
     cv2.imwrite(out_path, img)
+
+
+def get_similarity(data1, data2):
+    def l2_norm(input, axis=1):
+        norm = np.linalg.norm(input, 2, axis, True)
+        output = np.divide(input, norm)
+        return output
+
+    data1 -= np.average(data1)
+    data2 -= np.average(data2)
+
+    data1 = l2_norm(data1)
+    data2 = l2_norm(data2)
+    prob = np.dot(data1, data2.T) / (np.linalg.norm(data1) * np.linalg.norm(data2))
+    return prob
