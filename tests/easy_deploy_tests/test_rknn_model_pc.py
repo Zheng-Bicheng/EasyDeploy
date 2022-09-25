@@ -1,4 +1,4 @@
-from EaysDeploy.base.base_model import RKNNModelPC
+from EasyDeploy.base import RKNNModelPC
 
 if __name__ == "__main__":
     # 测试模型是否能够成功构建

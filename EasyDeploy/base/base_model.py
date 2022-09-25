@@ -58,6 +58,7 @@ class RKNNModelPC:
         result = self.model.inference(input_data)
         return result
 
+
 class RKNNModelBoard:
     def __init__(self,
                  verbose=True,
@@ -66,17 +67,17 @@ class RKNNModelBoard:
         from rknnlite.api import RKNNLite
 
         # create rknn
-        rknn = RKNNLite(verbose=verbose)
+        self.model = RKNNLite(verbose=verbose)
 
         # Load ONNX model
         assert rknn_path is not None, print_error("model_path is None")
-        ret = rknn.load_rknn(path=rknn_path)
+        ret = self.model.load_rknn(path=rknn_path)
         assert ret == 0, print_error("Load model failed!")
 
         if target == "RK3588":
-            ret = rknn.init_runtime(core_mask=RKNNLite.NPU_CORE_0)
+            ret = self.model.init_runtime(core_mask=RKNNLite.NPU_CORE_0)
         else:
-            ret = rknn.init_runtime()
+            ret = self.model.init_runtime()
         assert ret == 0, print_error("Init runtime environment failed!")
 
     def infer(self, input_data):

@@ -1,5 +1,5 @@
-from EaysDeploy.base import RKNNModelPC
-from EaysDeploy.base import RKNNModelBoard
+from EasyDeploy.base import RKNNModelPC
+from EasyDeploy.base import RKNNModelBoard
 import numpy as np
 
 
@@ -34,9 +34,9 @@ class AdaFaceForBoard(RKNNModelBoard):
                  rknn_path=None,
                  target='RK3568'):
         super(AdaFaceForBoard, self).__init__(
-            verbose=True,
-            rknn_path=None,
-            target='RK3568'
+            verbose=verbose,
+            rknn_path=rknn_path,
+            target=target
         )
 
     def detect(self, img):

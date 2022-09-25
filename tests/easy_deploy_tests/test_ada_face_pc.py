@@ -1,4 +1,4 @@
-from EaysDeploy.clas.ada_face.ada_face import AdaFaceForPC
+from EasyDeploy.clas import AdaFaceForPC
 import cv2
 if __name__ == "__main__":
     model = AdaFaceForPC(verbose=True,

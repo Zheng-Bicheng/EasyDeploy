@@ -1,7 +1,7 @@
 import os
-from EaysDeploy.detection.scrfd import ScrFDForPC
-from EaysDeploy.utils import draw_face
-from EaysDeploy.utils import norm_crop
+from EasyDeploy.detection import ScrFDForPC
+from EasyDeploy.utils import draw_face
+from EasyDeploy.utils import norm_crop
 import cv2
 
 if __name__ == "__main__":

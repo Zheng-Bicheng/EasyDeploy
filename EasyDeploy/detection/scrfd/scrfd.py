@@ -1,5 +1,5 @@
-from EaysDeploy.base import RKNNModelPC
-from EaysDeploy.base import RKNNModelBoard
+from EasyDeploy.base import RKNNModelPC
+from EasyDeploy.base import RKNNModelBoard
 import cv2
 import numpy as np
 
@@ -79,6 +79,8 @@ class ScrFDForPC(RKNNModelPC):
         bboxes_list = []
         points_list = []
         results = self.infer([input_data])
+        for i in range(len(results)):
+            results[i] = np.squeeze(results[i], 3)
         self.init_vars(results)
         fmc = self.fmc
         for idx, stride in enumerate(self._feat_stride_fpn):
@@ -118,9 +120,9 @@ class ScrFDForPC(RKNNModelPC):
             pos_bboxes = bboxes[pos_indexes]
             scores_list.append(pos_scores)
             bboxes_list.append(pos_bboxes)
+            del bboxes
             if self.use_kps:
                 points = distance2kps(anchor_centers, points_predicts)
-                # points = points_predicts
                 points = points.reshape((points.shape[0], -1, 2))
                 pos_points = points[pos_indexes]
                 points_list.append(pos_points)
@@ -247,9 +249,9 @@ class ScrFDForBoard(RKNNModelBoard):
                  input_size=None,
                  nms_thresh=0.5):
         super(ScrFDForBoard, self).__init__(
-            verbose=True,
-            rknn_path=None,
-            target='RK3568'
+            verbose=verbose,
+            rknn_path=rknn_path,
+            target=target
         )
         if input_size is None:
             self.input_size = [640, 640]
@@ -262,6 +264,8 @@ class ScrFDForBoard(RKNNModelBoard):
         bboxes_list = []
         points_list = []
         results = self.infer([input_data])
+        for i in range(len(results)):
+            results[i] = np.squeeze(results[i], 3)
         self.init_vars(results)
         fmc = self.fmc
         for idx, stride in enumerate(self._feat_stride_fpn):
@@ -279,7 +283,6 @@ class ScrFDForBoard(RKNNModelBoard):
                 bbox_predicts = bbox_predicts * stride
                 if self.use_kps:
                     points_predicts = results[idx + fmc * 2] * stride
-
             height = self.input_size[0] // stride
             width = self.input_size[1] // stride
             key = (height, width, stride)
@@ -303,7 +306,6 @@ class ScrFDForBoard(RKNNModelBoard):
             bboxes_list.append(pos_bboxes)
             if self.use_kps:
                 points = distance2kps(anchor_centers, points_predicts)
-                # points = points_predicts
                 points = points.reshape((points.shape[0], -1, 2))
                 pos_points = points[pos_indexes]
                 points_list.append(pos_points)
@@ -327,6 +329,7 @@ class ScrFDForBoard(RKNNModelBoard):
         det_img = np.zeros((self.input_size[1], self.input_size[0], 3), dtype=np.uint8)
         det_img[:new_height, :new_width, :] = resized_img
         det_img = np.expand_dims(det_img, axis=0)
+
         scores_list, bboxes_list, points_list = self.forward(det_img, thresh)
 
         scores = np.vstack(scores_list)
@@ -364,8 +367,6 @@ class ScrFDForBoard(RKNNModelBoard):
             if points is not None:
                 points = points[bindex, :]
         return det, points
-
-    # def predict(self, image):
 
     def init_vars(self, outputs):
         if len(outputs[0].shape) == 3:
