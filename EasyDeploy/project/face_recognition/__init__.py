@@ -1,1 +1,2 @@
 from .face_recognition import FaceRecognitionForPC
+from .face_recognition import FaceRecognitionForBoard

@@ -1,11 +1,11 @@
 import os
-from EasyDeploy.detection import ScrFDForPC
+from EasyDeploy.detection import SCRFDForPC
 from EasyDeploy.utils import draw_face
 from EasyDeploy.utils import norm_crop
 import cv2
 
 if __name__ == "__main__":
-    my_model = ScrFDForPC(verbose=False,
+    my_model = SCRFDForPC(verbose=False,
                           model_path="./weights/onnx/scrfd_640x640_with_points.onnx")
     my_model.export("./weights/rknn/scrfd_640x640_with_points.rknn")
 

@@ -48,7 +48,7 @@ def distance2bbox(points, distance, max_shape=None):
     return np.stack([x1, y1, x2, y2], axis=-1)
 
 
-class ScrFDForPC(RKNNModelPC):
+class SCRFDForPC(RKNNModelPC):
     def __init__(self,
                  verbose=True,
                  mean_values=None,
@@ -61,7 +61,7 @@ class ScrFDForPC(RKNNModelPC):
             mean_values = [[round(std * 255, 3) for std in [0.5, 0.5, 0.5]]]
         if std_values is None:
             std_values = [[round(mean * 255, 3) for mean in [0.5, 0.5, 0.5]]]
-        super(ScrFDForPC, self).__init__(
+        super(SCRFDForPC, self).__init__(
             verbose=verbose,
             mean_values=mean_values,
             std_values=std_values,
@@ -237,14 +237,14 @@ class ScrFDForPC(RKNNModelPC):
         return keep
 
 
-class ScrFDForBoard(RKNNModelBoard):
+class SCRFDForBoard(RKNNModelBoard):
     def __init__(self,
                  verbose=True,
                  rknn_path=None,
                  target='RK3568',
                  input_size=None,
                  nms_thresh=0.5):
-        super(ScrFDForBoard, self).__init__(
+        super(SCRFDForBoard, self).__init__(
             verbose=verbose,
             rknn_path=rknn_path,
             target=target

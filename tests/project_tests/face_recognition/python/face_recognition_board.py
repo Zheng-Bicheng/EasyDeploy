@@ -1,13 +1,12 @@
-from EasyDeploy.project.face_recognition import FaceRecognitionForPC
+from EasyDeploy.project.face_recognition import FaceRecognitionForBoard
 import cv2
 import os
 
 if __name__ == "__main__":
-    face_recognition = FaceRecognitionForPC(det_model_name="scrfd",
-                                            det_model_weight_path="./weights/onnx/scrfd_640x640_with_points.onnx",
+    face_recognition = FaceRecognitionForBoard(det_model_name="scrfd",
+                                            det_model_weight_path="./weights/det.rknn",
                                             cls_model_name="adaface",
-                                            cls_model_weight_path="./weights/onnx/mobile_face_net_ada_face_112x112.onnx")
-    # face_recognition.export("./weights")
+                                            cls_model_weight_path="./weights/cls.rknn")
     face_recognition.create_database("./database", "./database")
     face_recognition.load_database("./database")
 

@@ -1,6 +1,5 @@
 # AdaFace
 
-原仓库地址: [AdaFace](https://github.com/mk-minchul/AdaFace)
 
 ## 简介
 一直以来，低质量图像的人脸识别都具有挑战性，因为低质量图像的人脸属性是模糊和退化的。将这样的图片输入模型时，将不能很好的实现分类。
@@ -23,4 +22,34 @@ EasyDeploy中使用的模型是我们使用MobileFaceNet + AdaFace训练出来�
 仓库中可以利用AIStudio的免费GPU进行在线训练。
 
 
+## 使用教程
 
+**PC**
+****
+
+```python
+from EasyDeploy.clas import AdaFaceForPC
+import cv2
+if __name__ == "__main__":
+    model = AdaFaceForPC(verbose=True,
+                         model_path="./weights/onnx/mobile_face_net_ada_face_112x112.onnx")
+    model.export("./weights/rknn/mobile_face_net_ada_face_112x112.rknn")
+    image = cv2.imread("./tests/test_outputs/scrfd_face.jpg")
+    results = model.detect(image)
+```
+
+**Board**
+
+```python
+from EasyDeploy.clas import AdaFaceForBoard
+import cv2
+if __name__ == "__main__":
+    model = AdaFaceForBoard(verbose=True,
+                            rknn_path="./weights/rknn/mobile_face_net_ada_face_112x112.rknn")
+    image = cv2.imread("./tests/test_outputs/scrfd_face.jpg")
+    results = model.detect(image)
+```
+
+## 参考仓库🙏🙏🙏
+
+原仓库地址: [AdaFace](https://github.com/mk-minchul/AdaFace)
