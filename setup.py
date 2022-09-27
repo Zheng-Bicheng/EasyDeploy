@@ -23,6 +23,8 @@ setup(name='EasyDeploy',
 
           'EasyDeploy/utils',
       ],
+      package_data={'': ['*.ttc']},
+      data_files=[("", ["EasyDeploy/utils/simsun.ttc"])],
       author="ZhengBicheng",
       author_email="zheng_bicheng@outlook.com",
       url='https://github.com/Zheng-Bicheng/EasyDeployForRK3568',

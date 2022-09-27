@@ -94,7 +94,7 @@ class FaceRecognitionForPC:
                 feature_dic[key] = feature_similarity[0][0]
             feature_dic = sorted(feature_dic.items(), key=lambda x: x[1], reverse=True)
             feature_ls.append(feature_dic.copy())
-        return feature_ls
+        return feature_ls, bboxes
 
 
 class FaceRecognitionForBoard:
@@ -110,7 +110,7 @@ class FaceRecognitionForBoard:
             face_cls_model_name_ls)
 
         self.det_model = SCRFDForBoard(verbose=False, rknn_path=det_model_weight_path)
-        self.cls_model = SCRFDForBoard(verbose=False, rknn_path=cls_model_weight_path)
+        self.cls_model = AdaFaceForBoard(verbose=False, rknn_path=cls_model_weight_path)
         self.database = None
 
     def create_database(self,
@@ -174,4 +174,4 @@ class FaceRecognitionForBoard:
                 feature_dic[key] = feature_similarity[0][0]
             feature_dic = sorted(feature_dic.items(), key=lambda x: x[1], reverse=True)
             feature_ls.append(feature_dic.copy())
-        return feature_ls
+        return feature_ls,bboxes
