@@ -23,15 +23,15 @@
 
 符号说明: (1) ✅: 已经支持  (2) ❌: 暂不支持
 
-| 任务场景           | 模型      | API                                                                                                 | 是否支持量化 | RK3568 | RK3588 |
-|----------------|---------|-----------------------------------------------------------------------------------------------------|--------|--------|--------|
-| Face Clas      | AdaFace | [python](https://github.com/Zheng-Bicheng/EasyDeployForRK3568/tree/main/EasyDeploy/clas/ada_face)   | ❌      | ✅      | ✅      |
-| Face Detection | ScrFD   | [python](https://github.com/Zheng-Bicheng/EasyDeployForRK3568/tree/main/EasyDeploy/detection/scrfd) | ❌      | ✅      | ✅      |
+| 任务场景           | 模型      | API                                      | 是否支持量化 | RK3568 | RK3588 |
+|----------------|---------|------------------------------------------|--------|--------|--------|
+| Face Clas      | AdaFace | [python](./example/clas/ada_face/python) | ❌      | ✅      | ✅      |
+| Face Detection | ScrFD   | [python](example/detection/scrfd/python) | ❌      | ✅      | ✅      |
 
 ## demo例程✨✨✨
-| 任务场景             | API                                                                                                           | 是否支持量化 | RK3568 | RK3588 |
-|------------------|---------------------------------------------------------------------------------------------------------------|--------|--------|--------|
-| Face Recognition | [python](https://github.com/Zheng-Bicheng/EasyDeployForRK3568/tree/main/tests/project_tests/face_recognition) | ❌      | ✅      | ✅      |
+| 任务场景             | API                                               | 是否支持量化 | RK3568 | RK3588 |
+|------------------|---------------------------------------------------|--------|--------|--------|
+| Face Recognition | [python](example/project/face_recognition/python) | ❌      | ✅      | ✅      |
 
 
 ## 文档导航🚙🚙🚙
