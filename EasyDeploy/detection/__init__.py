@@ -1,2 +1,1 @@
-from .scrfd import SCRFDForPC
-from .scrfd import SCRFDForBoard
+from .scrfd import SCRFD

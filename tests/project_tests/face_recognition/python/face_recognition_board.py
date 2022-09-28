@@ -1,6 +1,6 @@
 # encoding: utf-8
 from EasyDeploy.project.face_recognition import FaceRecognitionForBoard
-from EasyDeploy.utils.face_detection import draw_face_with_text
+from EasyDeploy.utils.detection_utils import draw_face_with_text
 import cv2
 import os
 
