@@ -6,13 +6,13 @@
 
 ### python
 
-**PC**
+**Install EasyDeploy Python For PC**
 ```text
 git clone https://github.com/Zheng-Bicheng/EasyDeploy
 python setup.py install
 ```
 
-**Board**
+**Install EasyDeploy Python For Board**
 ```text
 git clone https://github.com/Zheng-Bicheng/EasyDeploy
 sudo python3 setup.py install
