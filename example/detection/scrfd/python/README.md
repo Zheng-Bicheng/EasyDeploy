@@ -1,4 +1,4 @@
-# AdaFace Python部署示例
+# SCRFD Python部署示例
 
 在部署前，需确认以下两个步骤:
 
@@ -9,17 +9,17 @@
 
 **运行PC代码，生成rknn文件**
 ```text
-wget https://bj.bcebos.com/fastdeploy/models/onnx/mobile_face_net_ada_face_112x112.onnx
-python  ./test_ada_face.py \
+wget https://bj.bcebos.com/paddlehub/fastdeploy/scrfd_2.5g_bnkps_shape640x640.onnx
+python  ./test_scrfd_test.py \
         --device pc \
-        --model_path ./mobile_face_net_ada_face_112x112.onnx \
+        --model_path ./scrfd_2.5g_bnkps_shape640x640.onnx \
         --target_platform RK3568
 ```
 
 **board**
 ```text
-python  ./test_ada_face.py \
+python  ./test_scrfd_test.py \
         --device board \
-        --model_path ./ada_face.rknn \
+        --model_path ./scrfd.rknn \
         --target_platform RK3568
 ```

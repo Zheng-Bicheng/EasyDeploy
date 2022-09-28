@@ -20,6 +20,6 @@ if __name__ == "__main__":
                     model_path=config.model_path,
                     target_platform=config.target_platform)
     if config.device == 'pc':
-        model.export("./mobile_face_net_ada_face_112x112.rknn")
+        model.export("./ada_face.rknn")
     image = cv2.imread("./scrfd_face.jpg")
     results = model.detect(image)
