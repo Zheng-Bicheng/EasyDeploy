@@ -29,7 +29,9 @@ class FaceRecognition:
                  det_model_weight_path,
                  cls_model_name,
                  cls_model_weight_path,
-                 device=None
+                 verbose=True,
+                 device=None,
+                 target_platform="RK3568"
                  ):
         assert det_model_name.lower() in face_det_model_name_ls, "目前人脸识别检测(det)模型只支持{}".format(
             face_det_model_name_ls)
@@ -37,8 +39,16 @@ class FaceRecognition:
             face_cls_model_name_ls)
         assert (device is not None) and (device.lower() in ['pc', 'board']), \
             print_error("请输入正确的设备型号(pc,board)")
-        self.det_model = SCRFD(verbose=False, device=device, model_path=det_model_weight_path)
-        self.cls_model = AdaFace(verbose=False, device=device, model_path=cls_model_weight_path)
+        self.det_model = SCRFD(verbose=verbose,
+                               device=device,
+                               model_path=det_model_weight_path,
+                               target_platform=target_platform
+                               )
+        self.cls_model = AdaFace(verbose=verbose,
+                                 device=device,
+                                 model_path=cls_model_weight_path,
+                                 target_platform=target_platform
+                                 )
         self.database = None
 
     def create_database(self,
