@@ -16,7 +16,7 @@ def get_similarity(data1, data2):
     data1 = l2_norm(data1)
     data2 = l2_norm(data2)
     prob = np.dot(data1, data2.T) / (np.linalg.norm(data1) * np.linalg.norm(data2))
-    return prob.ravel()
+    return prob.ravel()[0]
 
 
 def norm_crop(img, landmark, image_size=112):

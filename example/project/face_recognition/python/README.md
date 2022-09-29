@@ -9,9 +9,9 @@ wget https://bj.bcebos.com/paddlehub/fastdeploy/scrfd_2.5g_bnkps_shape640x640.on
 python  ./face_recognition.py \
         --device pc \
         --det_model_name scrfd \
-        --det_model_path ./scrfd_2.5g_bnkps_shape640x640.onnx \
+        --det_model_weight_path ./scrfd_2.5g_bnkps_shape640x640.onnx \
         --cls_model_name adaface \
-        --det_model_path ./mobile_face_net_ada_face_112x112.onnx \
+        --cls_model_weight_path ./mobile_face_net_ada_face_112x112.onnx \
         --target_platform RK3568
 ```
 
@@ -20,8 +20,8 @@ python  ./face_recognition.py \
 python  ./face_recognition.py \
         --device pc \
         --det_model_name scrfd \
-        --det_model_path ./det.rknn \
+        --det_model_weight_path ./det.rknn \
         --cls_model_name adaface \
-        --det_model_path ./cls.rknn \
+        --cls_model_weight_path ./cls.rknn \
         --target_platform RK3568
 ```
