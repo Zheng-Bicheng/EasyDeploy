@@ -17,11 +17,11 @@ python  ./face_recognition.py \
 
 **board**
 ```text
-python  ./face_recognition.py \
-        --device pc \
-        --det_model_name scrfd \
-        --det_model_weight_path ./det.rknn \
-        --cls_model_name adaface \
-        --cls_model_weight_path ./cls.rknn \
-        --target_platform RK3568
+sudo -E python3  ./face_recognition.py \
+                --device board \
+                --det_model_name scrfd \
+                --det_model_weight_path ./det.rknn \
+                --cls_model_name adaface \
+                --cls_model_weight_path ./cls.rknn \
+                --target_platform RK3568
 ```

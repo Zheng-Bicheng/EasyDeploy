@@ -16,7 +16,7 @@ python  ./test_scrfd_test.py \
         --target_platform RK3568
 ```
 
-**在板子上进行推理**
+**board**
 ```text
 python  ./test_scrfd_test.py \
         --device board \

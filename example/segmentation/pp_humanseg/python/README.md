@@ -25,8 +25,8 @@
 
 * **在板子上进行推理**
     ```text
-    python  ./test_pp_humanseg.py \
-            --device board \
-            --model_path ./pp_humanseg.rknn \
-            --target_platform RK3568
+    sudo -E python3  ./test_pp_humanseg.py \
+                    --device board \
+                    --model_path ./pp_humanseg.rknn \
+                    --target_platform RK3568
     ```
