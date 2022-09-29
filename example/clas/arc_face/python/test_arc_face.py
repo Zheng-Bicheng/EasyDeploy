@@ -20,6 +20,6 @@ if __name__ == "__main__":
                     model_path=config.model_path,
                     target_platform=config.target_platform)
     if config.device == 'pc':
-        model.export("./ada_face.rknn")
+        model.export("./arc_face.rknn")
     image = cv2.imread("./test_arcface.JPG")
     results = model.detect(image)

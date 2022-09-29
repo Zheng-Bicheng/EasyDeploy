@@ -1,5 +1,5 @@
 from EasyDeploy.detection.scrfd import SCRFD
-from EasyDeploy.clas.ada_face import AdaFace
+from EasyDeploy.clas import (AdaFace, ArcFace)
 import os
 import cv2
 import numpy as np
@@ -20,7 +20,7 @@ def print_warning(warning_txt):
 
 
 face_det_model_name_ls = ['scrfd', ]
-face_cls_model_name_ls = ['adaface', ]
+face_cls_model_name_ls = ['adaface', 'arcface']
 
 
 class FaceRecognition:
@@ -44,11 +44,18 @@ class FaceRecognition:
                                model_path=det_model_weight_path,
                                target_platform=target_platform
                                )
-        self.cls_model = AdaFace(verbose=verbose,
-                                 device=device,
-                                 model_path=cls_model_weight_path,
-                                 target_platform=target_platform
-                                 )
+        if cls_model_name == "adaface":
+            self.cls_model = AdaFace(verbose=verbose,
+                                     device=device,
+                                     model_path=cls_model_weight_path,
+                                     target_platform=target_platform
+                                     )
+        elif cls_model_name == "arcface":
+            self.cls_model = ArcFace(verbose=verbose,
+                                     device=device,
+                                     model_path=cls_model_weight_path,
+                                     target_platform=target_platform
+                                     )
         self.database = None
 
     def create_database(self,

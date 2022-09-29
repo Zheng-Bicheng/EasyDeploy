@@ -10,12 +10,13 @@
 
 符号说明: (1) ✅: 已经支持  (2) ❌: 暂不支持
 
-| 任务场景                | 模型         | Demo                                                | 是否支持量化 | RK3568 | RK3588 |
-|---------------------|------------|-----------------------------------------------------|--------|--------|--------|
-| Face Clas           | AdaFace    | [python](./example/clas/ada_face/python)            | ❌      | ✅      | ✅      |
-| Face Detection      | ScrFD      | [python](./example/detection/scrfd/python)          | ❌      | ✅      | ✅      |
-| Universal Detection | Picodet    | [python](./example/detection/picodet/python)        | ❌      | ✅      | ✅      |
-| People Segmentation | PPHumanSeg | [python](./example/segmentation/pp_humanseg/python) | ❌      | ✅      | ✅      |
+| 任务场景                | 模型         | Demo                                        | 是否支持量化 | RK3568 | RK3588 |
+|---------------------|------------|---------------------------------------------|--------|--------|--------|
+| Face Clas           | AdaFace    | [Demo](./example/clas/ada_face/)            | ❌      | ✅      | ✅      |
+| Face Clas           | ArcFace    | [Demo](./example/clas/arc_face/)            | ❌      | ✅      | ✅      |
+| Face Detection      | ScrFD      | [Demo](./example/detection/scrfd/)          | ❌      | ✅      | ✅      |
+| Universal Detection | Picodet    | [Demo](./example/detection/picodet/)        | ❌      | ✅      | ✅      |
+| People Segmentation | PPHumanSeg | [Demo](./example/segmentation/pp_humanseg/) | ❌      | ✅      | ✅      |
 
 ## demo例程✨✨✨
 | 任务场景           | Demo                                                | 是否支持量化 | RK3568 | RK3588 |
