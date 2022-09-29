@@ -31,6 +31,11 @@ class AdaFace(RKNNModel):
         )
 
         # create model
+        if mean_values is None:
+            mean_values = [[round(std * 255, 3) for std in [0.5, 0.5, 0.5]]]
+        if std_values is None:
+            std_values = [[round(mean * 255, 3) for mean in [0.5, 0.5, 0.5]]]
+        assert model_path is not None, print_error("model_path is None")
         assert model_path is not None, print_error("model_path is None")
         self.create_model(
             mean_values=mean_values,
