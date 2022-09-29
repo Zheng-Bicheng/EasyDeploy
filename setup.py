@@ -21,6 +21,9 @@ setup(name='EasyDeploy',
           'EasyDeploy/project',
           'EasyDeploy/project/face_recognition',
 
+          'EasyDeploy/segmentation',
+          'EasyDeploy/segmentation/pp_humanseg',
+
           'EasyDeploy/utils',
       ],
       package_data={'': ['*.ttc']},
