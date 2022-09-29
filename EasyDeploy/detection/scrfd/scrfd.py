@@ -147,11 +147,14 @@ class SCRFD(RKNNModel):
         return results
 
     def forward(self, input_data, score_thresh):
+        input_data = np.array(input_data).astype(np.float32)
+        input_data = np.expand_dims(input_data, axis=0)
+        results = self.infer([input_data])
+
+        self.init_vars(results)
         scores_list = []
         bboxes_list = []
         points_list = []
-        results = self.infer([input_data])
-        self.init_vars(results)
         fmc = self.fmc
         for idx, stride in enumerate(self._feat_stride_fpn):
             # If model support batch dim, take first output

@@ -10,7 +10,7 @@
 **运行PC代码，生成rknn文件**
 ```text
 wget https://bj.bcebos.com/paddlehub/fastdeploy/scrfd_2.5g_bnkps_shape640x640.onnx
-python  ./test_scrfd_test.py \
+python  ./test_scrfd.py \
         --device pc \
         --model_path ./scrfd_2.5g_bnkps_shape640x640.onnx \
         --target_platform RK3568
@@ -18,7 +18,7 @@ python  ./test_scrfd_test.py \
 
 **board**
 ```text
-python  ./test_scrfd_test.py \
+python  ./test_scrfd.py \
         --device board \
         --model_path ./scrfd.rknn \
         --target_platform RK3568

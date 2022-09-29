@@ -6,7 +6,7 @@
 ```text
 wget https://bj.bcebos.com/fastdeploy/models/onnx/mobile_face_net_ada_face_112x112.onnx
 wget https://bj.bcebos.com/paddlehub/fastdeploy/scrfd_2.5g_bnkps_shape640x640.onnx
-python  ./face_recognition.py \
+python  ./test_face_recognition.py \
         --device pc \
         --det_model_name scrfd \
         --det_model_weight_path ./scrfd_2.5g_bnkps_shape640x640.onnx \
@@ -17,7 +17,7 @@ python  ./face_recognition.py \
 
 **board**
 ```text
-sudo -E python3  ./face_recognition.py \
+sudo -E python3  ./test_face_recognition.py \
                 --device board \
                 --det_model_name scrfd \
                 --det_model_weight_path ./det.rknn \
