@@ -1,4 +1,4 @@
-# SCRFD Python部署示例
+# Picodet Python部署示例
 
 在部署前，需确认以下两个步骤:
 
@@ -9,17 +9,17 @@
 
 **运行PC代码，生成rknn文件**
 ```text
-wget https://bj.bcebos.com/paddlehub/fastdeploy/scrfd_2.5g_bnkps_shape640x640.onnx
-python  ./test_scrfd.py \
+wget wget https://paddlelite-demo.bj.bcebos.com/onnx%26rknn2_model/picodet_s_320_coco_sim.onnx
+python  ./test_picodet.py \
         --device pc \
-        --model_path ./scrfd_2.5g_bnkps_shape640x640.onnx \
+        --model_path ./picodet_s_320_coco_sim.onnx \
         --target_platform RK3568
 ```
 
 **board**
 ```text
-sudo -E python  ./test_scrfd.py \
+sudo -E python3  ./test_picodet.py \
         --device board \
-        --model_path ./scrfd.rknn \
+        --model_path ./picodet.rknn \
         --target_platform RK3568
 ```

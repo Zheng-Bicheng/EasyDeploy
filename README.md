@@ -14,6 +14,7 @@
 |---------------------|------------|-----------------------------------------------------|--------|--------|--------|
 | Face Clas           | AdaFace    | [python](./example/clas/ada_face/python)            | ❌      | ✅      | ✅      |
 | Face Detection      | ScrFD      | [python](./example/detection/scrfd/python)          | ❌      | ✅      | ✅      |
+| Universal Detection | Picodet    | [python](./example/detection/picodet/python)        | ❌      | ✅      | ✅      |
 | People Segmentation | PPHumanSeg | [python](./example/segmentation/pp_humanseg/python) | ❌      | ✅      | ✅      |
 
 ## demo例程✨✨✨
@@ -21,6 +22,7 @@
 |----------------|-----------------------------------------------------|--------|--------|--------|
 | 人脸识别           | [python](./example/project/face_recognition/python) | ❌      | ✅      | ✅      |
 | PPHumanSeg人像分割 | [python](./example/segmentation/pp_humanseg/python) | ❌      | ✅      | ✅      |
+| Picodet 通用检测模型 | [python](./example/detection/picodet/python)        | ❌      | ✅      | ✅      |
 
 
 ## 文档导航🚙🚙🚙

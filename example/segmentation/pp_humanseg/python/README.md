@@ -8,6 +8,7 @@
 执行如下脚本即可完成，部署测试:
 
 * **运行PC代码，生成rknn文件**
+
     推理横屏图片
     ```text
     python  ./test_pp_humanseg.py \

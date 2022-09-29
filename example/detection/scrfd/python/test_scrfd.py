@@ -24,7 +24,6 @@ if __name__ == "__main__":
     if config.device == 'pc':
         model.export("./scrfd.rknn")
     img = cv2.imread("./ada_face_test.jpeg")
-    model.detect(img.copy())
     bboxes, landmarks = model.detect(img.copy())
     print("detect model ok")
     draw_bbox(img.copy(), bboxes, "./scrfd_result.jpg")

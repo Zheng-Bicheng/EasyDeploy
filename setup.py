@@ -17,6 +17,7 @@ setup(name='EasyDeploy',
 
           'EasyDeploy/detection',
           'EasyDeploy/detection/scrfd',
+          'EasyDeploy/detection/picodet',
 
           'EasyDeploy/project',
           'EasyDeploy/project/face_recognition',
