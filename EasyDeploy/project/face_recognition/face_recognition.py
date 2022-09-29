@@ -112,7 +112,8 @@ class FaceRecognition:
                 feature_similarity = 0
                 for feature in features:
                     feature = feature.reshape((1, 512))
-                    feature_similarity += get_similarity(feature, cls_feature)
+                    similarity = get_similarity(feature, cls_feature)
+                    feature_similarity += similarity
                 feature_similarity /= len(features)
                 feature_dic[key] = feature_similarity
             feature_dic = sorted(feature_dic.items(), key=lambda x: x[1], reverse=True)

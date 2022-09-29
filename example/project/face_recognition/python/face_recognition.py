@@ -8,7 +8,7 @@ import argparse
 
 def get_config():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--verbose", default=True, help="rknntoolkit verbose")
+    parser.add_argument("--verbose", default=False, help="rknntoolkit verbose")
     parser.add_argument("--device", help="pc or board")
     parser.add_argument("--det_model_name", help="name of det model for loading")
     parser.add_argument("--det_model_weight_path", help="path of det model for loading")
