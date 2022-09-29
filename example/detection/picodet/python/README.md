@@ -18,7 +18,7 @@ python  ./test_picodet.py \
 
 **board**
 ```text
-python  ./test_picodet.py \
+sudo -E python3  ./test_picodet.py \
         --device board \
         --model_path ./picodet.rknn \
         --target_platform RK3568

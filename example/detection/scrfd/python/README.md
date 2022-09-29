@@ -18,7 +18,7 @@ python  ./test_scrfd.py \
 
 **board**
 ```text
-python  ./test_scrfd.py \
+sudo -E python  ./test_scrfd.py \
         --device board \
         --model_path ./scrfd.rknn \
         --target_platform RK3568
