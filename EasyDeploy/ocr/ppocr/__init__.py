@@ -1,0 +1,1 @@
+from pp_ocr_det import PPOCRDet

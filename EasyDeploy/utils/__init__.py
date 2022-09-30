@@ -4,3 +4,6 @@ from .face_utils import get_similarity
 
 from .detection_utils import draw_bbox
 from .detection_utils import draw_key_points
+from .detection_utils import pad_stride
+from .detection_utils import det_resize
+

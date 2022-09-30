@@ -49,3 +49,45 @@ def draw_key_points(img, key_points, out_path=None):
     if out_path is not None:
         cv2.imwrite(out_path, img)
     return output_img
+
+
+def pad_stride(img, pad_shape):
+    """
+    从左往右填充im到指定的
+    Args:
+        img: mat,the shape of mat is (h,w,c)
+        pad_shape: the shape of output
+
+    Returns:
+        padded picture
+    """
+    im_h, im_w, im_c = img.shape
+    pad_h = pad_shape[0]
+    pad_w = pad_shape[1]
+    padding_im = np.full((pad_h, pad_w, 3), 128, np.uint8)
+    padding_im[:im_h, :im_w, :im_c] = img
+    return padding_im
+
+
+def det_resize(img, target_size, interp=cv2.INTER_CUBIC):
+    """
+    resize
+    Args:
+        img: mat,the shape of mat is (h,w,c)
+        target_size: the shape of output
+        interp:
+
+    Returns:
+
+    """
+    output_h = target_size[0]
+    output_w = target_size[1]
+    h, w, c = img.shape
+    if h > w:
+        ratio = float(output_h) / h
+    elif w < h:
+        ratio = float(output_w) / w
+    else:
+        ratio = 1
+    img = cv2.resize(img, None, None, fx=ratio, fy=ratio, interpolation=interp)
+    return img, ratio
