@@ -1,7 +1,13 @@
 # ArcFace
 该模型简介出自[FastDeploy](https://github.com/PaddlePaddle/FastDeploy/tree/develop/examples/vision/faceid/insightface)
 
+## 训练与导出ONNX模型
+
+训练与导出模型请参考[ArcFace原仓库](https://github.com/deepinsight/insightface/commit/babb9a5)
+
 ## 下载预训练ONNX模型
+FastDeploy中提供了转换好的ONNX模型，详情参考FastDeploy仓库
+
 | 模型                                                                                     | 大小    | 精度 (AgeDB_30) |
 |:---------------------------------------------------------------------------------------|:------|:--------------|
 | [ArcFace-r18](https://bj.bcebos.com/paddlehub/fastdeploy/ms1mv3_arcface_r18.onnx)      | 92MB  | 97.7          |
@@ -14,7 +20,3 @@
 ## 详细部署文档
 
 - [Python部署](python)
-
-## 参考仓库🙏🙏🙏
-
-原仓库地址: [InsightFace](https://github.com/deepinsight/insightface/commit/babb9a5)

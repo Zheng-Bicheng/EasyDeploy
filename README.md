@@ -16,7 +16,7 @@
 | Face Clas           | ArcFace    | [Demo](./example/clas/arc_face/)            | ❌      | ✅      | ✅      |
 | Face Detection      | ScrFD      | [Demo](./example/detection/scrfd/)          | ❌      | ✅      | ✅      |
 | Universal Detection | Picodet    | [Demo](./example/detection/picodet/)        | ❌      | ✅      | ✅      |
-| People Segmentation | PPHumanSeg | [Demo](./example/segmentation/pp_humanseg/) | ❌      | ✅      | ✅      |
+| Human Segmentation  | PPHumanSeg | [Demo](./example/segmentation/pp_humanseg/) | ❌      | ✅      | ✅      |
 
 ## demo例程✨✨✨
 | 任务场景           | Demo                                                | 是否支持量化 | RK3568 | RK3588 |

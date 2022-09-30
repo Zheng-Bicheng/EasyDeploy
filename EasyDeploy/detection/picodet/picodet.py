@@ -215,7 +215,6 @@ class Picodet(RKNNModel):
 
     def detect(self, image, label_list):
         input_data, src_image = self.get_inputs(image)
-        self.forward(input_data)
         out_boxes_list, out_boxes_num = self.forward(input_data)
         scale_x = src_image.shape[1] / self.input_size[1]
         scale_y = src_image.shape[0] / self.input_size[0]
