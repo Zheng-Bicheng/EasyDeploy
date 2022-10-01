@@ -139,6 +139,14 @@ def preprocess_boxes(dt_boxes, ori_im):
     return dt_boxes, img_crop_list
 
 
+def draw_det(image, dt_boxes):
+    print(dt_boxes.shape)
+    for box in dt_boxes:
+        box = box.astype(np.int32).reshape((-1, 1, 2))
+        cv2.polylines(image, [box], True, color=(255, 255, 0), thickness=1)
+    return image
+
+
 class PPOCRDet(RKNNModel):
     def __init__(self,
                  verbose=True,
@@ -201,7 +209,7 @@ class PPOCRDet(RKNNModel):
         boxes, scores = self.boxes_from_bitmap(pred[0], mask, src_w, src_h)
         dt_boxes = self.filter_tag_det_res(boxes)
         dt_boxes, img_crop_list = preprocess_boxes(dt_boxes, src_image)
-        return dt_boxes, img_crop_list
+        return np.array(dt_boxes), img_crop_list
 
     def filter_tag_det_res(self, dt_boxes):
         img_height, img_width = self.input_size[0], self.input_size[1]

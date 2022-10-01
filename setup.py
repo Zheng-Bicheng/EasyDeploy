@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='EasyDeploy',
-      version='0.0.1',
+      version='0.2.1',
       keywords=[],
       description='''
       An Easy and Fast Deployment Toolkit For RK3568.
@@ -18,6 +18,9 @@ setup(name='EasyDeploy',
           'EasyDeploy/detection',
           'EasyDeploy/detection/scrfd',
           'EasyDeploy/detection/picodet',
+
+          'EasyDeploy/ocr',
+          'EasyDeploy/ocr/ppocr',
 
           'EasyDeploy/project',
           'EasyDeploy/project/face_recognition',
