@@ -11,8 +11,18 @@
 ```text
 python  ./test_pp_ocr.py \
         --device pc \
-        --model_path ./new_det.onnx \
+        --det_model_path ./ppocrv3_chinese_english/new_det.onnx \
+        --rec_model_path ./ppocrv3_chinese_english/new_rec.onnx \
+        --rec_char_dict_path ./ppocrv3_chinese_english/ppocr_keys_v1.txt \
         --target_platform RK3568
+        
+        
+python  ./test_pp_ocr.py \
+        --device pc \
+        --det_model_path ./PP_OCR_v2_det.onnx \
+        --rec_model_path ./PP_OCR_v2_rec.onnx \
+        --rec_char_dict_path ./ppocrv3_chinese_english/ppocr_keys_v1.txt \
+        --target_platform RK3568       
 ```
 
 **board**

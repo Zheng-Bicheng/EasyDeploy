@@ -140,7 +140,6 @@ def preprocess_boxes(dt_boxes, ori_im):
 
 
 def draw_det(image, dt_boxes):
-    print(dt_boxes.shape)
     for box in dt_boxes:
         box = box.astype(np.int32).reshape((-1, 1, 2))
         cv2.polylines(image, [box], True, color=(255, 255, 0), thickness=1)
@@ -181,7 +180,7 @@ class PPOCRDet(RKNNModel):
         if input_size is None:
             self.input_size = (960, 960)
         self.max_candidates = 1000
-        self.unclip_ratio = 2.0
+        self.unclip_ratio = 1.5
         self.min_size = 3
         self.score_mode = "fast"
         self.use_dilation = False
@@ -191,9 +190,10 @@ class PPOCRDet(RKNNModel):
     def detect(self,
                img):
         # get input image
-        src_image = img.copy()
-        im, ratio = det_resize(img.copy(), self.input_size)
-        im = pad_stride(im, self.input_size)
+        # im, ratio = det_resize(img.copy(), self.input_size)
+        # im = pad_stride(im, self.input_size)
+        im = cv2.resize(img.copy(), self.input_size)
+        src_image = im.copy()
         im = np.expand_dims(im, axis=0)
 
         # infer
@@ -202,14 +202,26 @@ class PPOCRDet(RKNNModel):
         # detect
         result = results[0]
         pred = result[:, 0, :, :]
-
         segmentation = pred > self.thresh
+
+        # 版本1
+        # boxes_batch = []
+        # for batch_index in range(pred.shape[0]):
+        #     src_h, src_w = self.input_size[0], self.input_size[1]
+        #     mask = segmentation[batch_index]
+        #     boxes, scores = self.boxes_from_bitmap(pred[batch_index], mask, src_w, src_h)
+        #     boxes_batch.append({'points': boxes})
+        # boxes = boxes_batch[0]['points']
+        # dt_boxes = self.filter_tag_det_res(boxes)
+        # dt_boxes, img_crop_list = preprocess_boxes(dt_boxes, src_image)
+
+        # 版本2
         src_h, src_w = self.input_size
         mask = segmentation[0]
         boxes, scores = self.boxes_from_bitmap(pred[0], mask, src_w, src_h)
         dt_boxes = self.filter_tag_det_res(boxes)
         dt_boxes, img_crop_list = preprocess_boxes(dt_boxes, src_image)
-        return np.array(dt_boxes), img_crop_list
+        return dt_boxes, img_crop_list, src_image
 
     def filter_tag_det_res(self, dt_boxes):
         img_height, img_width = self.input_size[0], self.input_size[1]
