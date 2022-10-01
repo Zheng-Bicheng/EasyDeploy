@@ -3,8 +3,13 @@
 ## 简介
 
 ****
-**EasyDeploy**是针对凌蒙派RK3568开发的推理部署工具箱。EasyDeploy集成了多种AI模型，能快速的在凌蒙派RK3568上部署各种例程，
+**EasyDeploy**是针对凌蒙派RK3568和CoolPI3588开发的推理部署工具箱。EasyDeploy集成了多种AI模型，能快速的在开发版上部署各种例程，
 做到开箱即用，大大缩减了工程所需要的时间，满足开发者多场景的产业部署需求。
+
+## 已经测试的开发板
+
+* [凌蒙派RK3568](https://item.taobao.com/item.htm?spm=a230r.1.14.3.33a92ef0UU6R1D&id=679932304676&ns=1&abbucket=7#detail)
+* [CoolPIRK3588](https://item.taobao.com/item.htm?spm=a21ag.7623864.sycm-live-item-rank.10.6baf50a5nFo22H&id=684428956773)
 
 ## 模型支持列表✨✨✨
 
