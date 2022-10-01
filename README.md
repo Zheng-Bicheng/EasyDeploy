@@ -30,7 +30,7 @@
 | 人脸识别           | [python](./example/project/face_recognition/python) | ❌      | ✅      | ✅      |
 | PPHumanSeg人像分割 | [python](./example/segmentation/pp_humanseg/python) | ❌      | ✅      | ✅      |
 | Picodet 通用检测模型 | [python](./example/detection/picodet/python)        | ❌      | ✅      | ✅      |
-| PPOCR          | [Demo](./example/ocr/ppocr)                         | ❌      | ✅      | ✅      |
+| PPOCR          | [Demo](./example/ocr/ppocr/python)                  | ❌      | ✅      | ✅      |
 
 ## 文档导航🚙🚙🚙
 
